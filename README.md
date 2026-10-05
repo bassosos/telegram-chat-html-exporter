@@ -52,3 +52,6 @@ $ python tl_chats_export.py --media telegramDataFolder,file_to_path.db cache4.db
 ## Features
 - Export Telegram chats to HTML
 - Supports media extraction
+## Example output
+Example html output
+![Example html output](example_output.png)

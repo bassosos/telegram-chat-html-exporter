@@ -4,8 +4,8 @@ import shutil
 from datetime import datetime, timezone, timedelta
 from bs4 import BeautifulSoup
 from pathlib import Path
-from mutagen import File
 from tlblobparser import *
+from ogg import get_ogg_opus_duration
 import os
 
 class TLHtml:
@@ -153,7 +153,7 @@ class TLHtml:
                                 title_div.string = f' Voice message '
                                 
                                 status_div = self.soup.new_tag('div', attrs={'class': ['status', 'details']})
-                                duration = File(local_path).info.length
+                                duration = get_ogg_opus_duration(local_path)
                                 minutes = int(duration // 60)
                                 seconds = int(duration % 60)
                                 status_div.string = f' {minutes:02d}:{seconds:02d} '
